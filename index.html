@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<py-script>
+import wikiquotes
+import os
+import random
+from better_profanity import profanity
+#To Do List:
+#Score (and deletes text) and Replay ✓
+#Github website
+#Catagories: Authors, Historical Figures, Comedians, Actors, Political Figures, All, Misc.
+#Ask people they want quotes from and add them to list
+#If quote length is over 100 words, cut it off ✓
+#Leaderboard
+#Censorship ✓
+#Timer
+
+x = 5
+score = 0
+actors = ["Adam Sandler", "Will Smith", "Robert Downey Jr", "Johnny Depp", "Ryan Reynolds", "Brad Pitt", "Scarlett Johansson", "Dwayne Johnson", "Tom Cruise", "Chris Pratt", "Samuel L. Jackson"]
+listofpeople = ["Gandhi", "Martin Luther King Jr.", "Kanye West", "Adolf Hitler", "Joeseph Stalin", "Alex Jones", "Donald Trump", "Joe Biden", "Barack Obama", "Dave Chappelle", "Julius Caesar", "Augustus", "Adam Sandler", "Will Smith", "Bill Clinton", "William Shakespeare", "Abraham Lincoln", "George Washington", "Aristotle", "Thomas Jefferson", "Albert Einstein", "Alexander Hamilton", "Richard Nixon", "Volodymyr Zelenskyy", "Jesus"]
+
+while x == 5:
+  randomperson = random.choice(listofpeople)
+  listofpeople.remove(randomperson)
+  wrongperson1 = random.choice(listofpeople)
+  listofpeople.remove(wrongperson1)
+  wrongperson2 = random.choice(listofpeople)
+  listofpeople.remove(wrongperson2)
+  wrongperson3 = random.choice(listofpeople)
+  listofpeople.remove(wrongperson3)
+  a = wikiquotes.random_quote(str(randomperson), "english")
+  censoredquote = profanity.censor(a)
+  abadabado = len(censoredquote)
+  if abadabado >= 500:
+    print("Quote: " + censoredquote[:500] + "..." + "\n")
+  else:
+    print("Quote: " + censoredquote[:500] + "\n")
+  
+  words = [randomperson, wrongperson1, wrongperson2, wrongperson3]
+  
+  for i in range(len(words)):
+      random_index = random.randrange(len(words))
+      print(str(i+1) + ": " + words[random_index])
+      if i == 0:
+        place1 = words[random_index]
+      if i == 1:
+        place2 = words[random_index]
+      if i == 2:
+        place3 = words[random_index]
+      if i == 3:
+        place4 = words[random_index]
+      del words[random_index]
+  
+  if place1 == randomperson:
+    correctnumber = str("1")
+  if place2 == randomperson:
+    correctnumber = str("2")
+</py-script>
+<body>
+<p>Welcome to the wonderful world of Who Said What!  I'll give you the first 500 words of a quote and you need to guess who it is from the 4 options of people I give you!  You can either answer with their number or their name!  Have fun!</p>
+</body>
+</html>
