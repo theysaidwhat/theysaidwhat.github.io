@@ -4,6 +4,11 @@
 </head>
 <body onload="brython()">
 <script type="text/python">
+await pyodide.runPythonAsync(`
+  from pyodide.http import pyfetch
+  response = await pyfetch("https://some_url/myfiles.zip")
+  await response.unpack_archive()
+`)
 import wikiquotes
 import os
 import random
