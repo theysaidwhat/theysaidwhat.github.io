@@ -1,147 +1,147 @@
 <py-script>
-import wikiquotes
-import os
-import random
-from better_profanity import profanity
-from time import sleep
+  import wikiquotes
+  import os
+  import random
+  from better_profanity import profanity
+  from time import sleep
 
-#To Do List:
-#Score (and deletes text) and Replay ✓
-#Github website
-#Catagories: Authors, Historical Figures, Comedians, Actors, Political Figures, All, Misc.
-#Ask people they want quotes from and add them to list
-#If quote length is over 100 words, cut it off ✓
-#Leaderboard
-#Censorship ✓
-#Timer
+  #To Do List:
+  #Score (and deletes text) and Replay ✓
+  #Github website
+  #Catagories: Authors, Historical Figures, Comedians, Actors, Political Figures, All, Misc.
+  #Ask people they want quotes from and add them to list
+  #If quote length is over 100 words, cut it off ✓
+  #Leaderboard
+  #Censorship ✓
+  #Timer
 
-x = 5
-score = 0
-custompeople = []
-actors = [
-  "Adam Sandler", "Will Smith", "Robert Downey Jr", "Johnny Depp",
-  "Ryan Reynolds", "Brad Pitt", "Scarlett Johansson", "Dwayne Johnson",
-  "Tom Cruise", "Chris Pratt", "Samuel L. Jackson", "Morgan Freeman",
-  "Leonardo DiCaprio", "Tom Hanks", "Christian Bale"
-]
-comedians = [
-  "Jerry Seinfeld", "Kevin Hart", "Steve Martin", "Louis C.K.",
-  "Ellen DeGeneres", "Bill Cosby", "Chris Rock", "Richard Pryor", "Tina Fey",
-  "Amy Schumer", "Dave Chappelle", "Melissa McCarthy", "George Carlin",
-  "Bill Hicks", "Eddie Murphy", "Jim Gaffigan", "Joan Rivers", "Bob Newhart",
-  "Wanda Sykes", "Kevin James"
-]
-authors = [
-  "Stephen King", "J.K. Rowling", "George Orwell", "William Shakespeare",
-  "F. Scott Fitzgerald", "Jane Austen", "Mark Twain", "Leo Tolstoy",
-  "Ernest Hemingway", "John Steinbeck", "J.R.R. Tolkien", "Stephenie Meyer",
-  "Dan Brown", "Agatha Christie", "Charles Dickens", "J.D. Salinger",
-  "Neil Gaiman", "Michael Crichton", "E.L. James", "Suzanne Collins"
-]
-historicalfigures = [
-  "George Washington", "Abraham Lincoln", "Mahatma Gandhi",
-  "Martin Luther King Jr.", "Winston Churchill", "Albert Einstein",
-  "Isaac Newton", "Alexander the Great", "Julius Caesar", "Napoleon Bonaparte",
-  "Christopher Columbus", "Genghis Khan", "Cleopatra", "Charles Darwin",
-  "Marco Polo", "Galileo Galilei", "William the Conqueror", "Louis XIV",
-  "Vladimir Putin", "Leon Trotsky", "Voltaire", "Queen Elizabeth I",
-  "Adolf Hitler", "Marie Curie", "Leo Tolstoy", "George Orwell",
-  "Thomas Edison", "Confucius", "Julius Caesar"
-]
-politicalfigures = [
-  "George Washington", "Abraham Lincoln", "Franklin D. Roosevelt",
-  "John F. Kennedy", "Ronald Reagan", "Barack Obama", "Nelson Mandela",
-  "Winston Churchill", "Mahatma Gandhi", "Martin Luther King Jr.",
-  "Vladimir Putin", "Adolf Hitler", "Joseph Stalin", "Mao Zedong",
-  "Queen Elizabeth II", "Charles de Gaulle", "Margaret Thatcher",
-  "Theodore Roosevelt", "Bill Clinton", "George W. Bush", "Harry S. Truman",
-  "Dwight D. Eisenhower", "John D. Rockefeller", "Woodrow Wilson",
-  "Richard Nixon", "Lyndon B. Johnson", "Jimmy Carter", "Gerald Ford",
-  "Benito Mussolini", "Kim Jong-un", "Fidel Castro", "Hugo Chavez",
-  "Alexander the Great"
-]
-listofpeople = [
-  "Gandhi", "Martin Luther King Jr.", "Kanye West", "Adolf Hitler",
-  "Joeseph Stalin", "Alex Jones", "Donald Trump", "Joe Biden", "Barack Obama",
-  "Dave Chappelle", "Julius Caesar", "Augustus", "Adam Sandler", "Will Smith",
-  "Bill Clinton", "William Shakespeare", "Abraham Lincoln",
-  "George Washington", "Aristotle", "Thomas Jefferson", "Albert Einstein",
-  "Alexander Hamilton", "Richard Nixon", "Volodymyr Zelenskyy", "Jesus"
-]
+  x = 5
+  score = 0
+  custompeople = []
+  actors = [
+    "Adam Sandler", "Will Smith", "Robert Downey Jr", "Johnny Depp",
+    "Ryan Reynolds", "Brad Pitt", "Scarlett Johansson", "Dwayne Johnson",
+    "Tom Cruise", "Chris Pratt", "Samuel L. Jackson", "Morgan Freeman",
+    "Leonardo DiCaprio", "Tom Hanks", "Christian Bale"
+  ]
+  comedians = [
+    "Jerry Seinfeld", "Kevin Hart", "Steve Martin", "Louis C.K.",
+    "Ellen DeGeneres", "Bill Cosby", "Chris Rock", "Richard Pryor", "Tina Fey",
+    "Amy Schumer", "Dave Chappelle", "Melissa McCarthy", "George Carlin",
+    "Bill Hicks", "Eddie Murphy", "Jim Gaffigan", "Joan Rivers", "Bob Newhart",
+    "Wanda Sykes", "Kevin James"
+  ]
+  authors = [
+    "Stephen King", "J.K. Rowling", "George Orwell", "William Shakespeare",
+    "F. Scott Fitzgerald", "Jane Austen", "Mark Twain", "Leo Tolstoy",
+    "Ernest Hemingway", "John Steinbeck", "J.R.R. Tolkien", "Stephenie Meyer",
+    "Dan Brown", "Agatha Christie", "Charles Dickens", "J.D. Salinger",
+    "Neil Gaiman", "Michael Crichton", "E.L. James", "Suzanne Collins"
+  ]
+  historicalfigures = [
+    "George Washington", "Abraham Lincoln", "Mahatma Gandhi",
+    "Martin Luther King Jr.", "Winston Churchill", "Albert Einstein",
+    "Isaac Newton", "Alexander the Great", "Julius Caesar", "Napoleon Bonaparte",
+    "Christopher Columbus", "Genghis Khan", "Cleopatra", "Charles Darwin",
+    "Marco Polo", "Galileo Galilei", "William the Conqueror", "Louis XIV",
+    "Vladimir Putin", "Leon Trotsky", "Voltaire", "Queen Elizabeth I",
+    "Adolf Hitler", "Marie Curie", "Leo Tolstoy", "George Orwell",
+    "Thomas Edison", "Confucius", "Julius Caesar"
+  ]
+  politicalfigures = [
+    "George Washington", "Abraham Lincoln", "Franklin D. Roosevelt",
+    "John F. Kennedy", "Ronald Reagan", "Barack Obama", "Nelson Mandela",
+    "Winston Churchill", "Mahatma Gandhi", "Martin Luther King Jr.",
+    "Vladimir Putin", "Adolf Hitler", "Joseph Stalin", "Mao Zedong",
+    "Queen Elizabeth II", "Charles de Gaulle", "Margaret Thatcher",
+    "Theodore Roosevelt", "Bill Clinton", "George W. Bush", "Harry S. Truman",
+    "Dwight D. Eisenhower", "John D. Rockefeller", "Woodrow Wilson",
+    "Richard Nixon", "Lyndon B. Johnson", "Jimmy Carter", "Gerald Ford",
+    "Benito Mussolini", "Kim Jong-un", "Fidel Castro", "Hugo Chavez",
+    "Alexander the Great"
+  ]
+  listofpeople = [
+    "Gandhi", "Martin Luther King Jr.", "Kanye West", "Adolf Hitler",
+    "Joeseph Stalin", "Alex Jones", "Donald Trump", "Joe Biden", "Barack Obama",
+    "Dave Chappelle", "Julius Caesar", "Augustus", "Adam Sandler", "Will Smith",
+    "Bill Clinton", "William Shakespeare", "Abraham Lincoln",
+    "George Washington", "Aristotle", "Thomas Jefferson", "Albert Einstein",
+    "Alexander Hamilton", "Richard Nixon", "Volodymyr Zelenskyy", "Jesus"
+  ]
 
-catagoryselection = int(
-  input(
-    "Which catagory would you like to select?  The options are:\n1: Misc\n2: Actors\n3: Authors\n4: Comedians\n5: Historical Figures\n6: Political Figures\n\n"
-  ))
+  catagoryselection = int(
+    input(
+      "Which catagory would you like to select?  The options are:\n1: Misc\n2: Actors\n3: Authors\n4: Comedians\n5: Historical Figures\n6: Political Figures\n\n"
+    ))
 
-finallist = []
+  finallist = []
 
-if catagoryselection == 2:
-  finallist.extend(actors)
-elif catagoryselection == 3:
-  finallist.extend(authors)
-elif catagoryselection == 4:
-  finallist.extend(comedians)
-elif catagoryselection == 5:
-  finallist.extend(historicalfigures)
-elif catagoryselection == 6:
-  finallist.extend(politicalfigures)
-elif catagoryselection == 1:
-  finallist.extend(listofpeople)
+  if catagoryselection == 2:
+    finallist.extend(actors)
+  elif catagoryselection == 3:
+    finallist.extend(authors)
+  elif catagoryselection == 4:
+    finallist.extend(comedians)
+  elif catagoryselection == 5:
+    finallist.extend(historicalfigures)
+  elif catagoryselection == 6:
+    finallist.extend(politicalfigures)
+  elif catagoryselection == 1:
+    finallist.extend(listofpeople)
 
-os.system('clear')
+  os.system('clear')
 
-while x == 5:
-  randomperson = random.choice(finallist)
-  finallist.remove(randomperson)
-  wrongperson1 = random.choice(finallist)
-  finallist.remove(wrongperson1)
-  wrongperson2 = random.choice(finallist)
-  finallist.remove(wrongperson2)
-  wrongperson3 = random.choice(finallist)
-  finallist.remove(wrongperson3)
-  a = wikiquotes.random_quote(str(randomperson), "english")
-  censoredquote = profanity.censor(a)
-  abadabado = len(censoredquote)
-  if abadabado >= 500:
-    print("Quote: " + censoredquote[:500] + "..." + "\n")
-  else:
-    print("Quote: " + censoredquote[:500] + "\n")
+  while x == 5:
+    randomperson = random.choice(finallist)
+    finallist.remove(randomperson)
+    wrongperson1 = random.choice(finallist)
+    finallist.remove(wrongperson1)
+    wrongperson2 = random.choice(finallist)
+    finallist.remove(wrongperson2)
+    wrongperson3 = random.choice(finallist)
+    finallist.remove(wrongperson3)
+    a = wikiquotes.random_quote(str(randomperson), "english")
+    censoredquote = profanity.censor(a)
+    abadabado = len(censoredquote)
+    if abadabado >= 500:
+      print("Quote: " + censoredquote[:500] + "..." + "\n")
+    else:
+      print("Quote: " + censoredquote[:500] + "\n")
 
-  words = [randomperson, wrongperson1, wrongperson2, wrongperson3]
+    words = [randomperson, wrongperson1, wrongperson2, wrongperson3]
 
-  for i in range(len(words)):
-    random_index = random.randrange(len(words))
-    print(str(i + 1) + ": " + words[random_index])
-    if i == 0:
-      place1 = words[random_index]
-    if i == 1:
-      place2 = words[random_index]
-    if i == 2:
-      place3 = words[random_index]
-    if i == 3:
-      place4 = words[random_index]
-    del words[random_index]
+    for i in range(len(words)):
+      random_index = random.randrange(len(words))
+      print(str(i + 1) + ": " + words[random_index])
+      if i == 0:
+        place1 = words[random_index]
+      if i == 1:
+        place2 = words[random_index]
+      if i == 2:
+        place3 = words[random_index]
+      if i == 3:
+        place4 = words[random_index]
+      del words[random_index]
 
-  if place1 == randomperson:
-    correctnumber = str("1")
-  if place2 == randomperson:
-    correctnumber = str("2")
-  if place3 == randomperson:
-    correctnumber = str("3")
-  if place4 == randomperson:
-    correctnumber = str("4")
+    if place1 == randomperson:
+      correctnumber = str("1")
+    if place2 == randomperson:
+      correctnumber = str("2")
+    if place3 == randomperson:
+      correctnumber = str("3")
+    if place4 == randomperson:
+      correctnumber = str("4")
 
-  answer = input("Who Do You Think It Is? \n")
-  if answer == randomperson or answer == str(correctnumber):
-    print("Correct!")
-    sleep(1)
-    os.system('clear')
-    score += 1
-  elif answer != randomperson:
-    print("Wrong!  It was " + randomperson + "!  Your final score was " +
-          str(score) + "!")
-    x = 4
-  else:
-    print("ERROR")
+    answer = input("Who Do You Think It Is? \n")
+    if answer == randomperson or answer == str(correctnumber):
+      print("Correct!")
+      sleep(1)
+      os.system('clear')
+      score += 1
+    elif answer != randomperson:
+      print("Wrong!  It was " + randomperson + "!  Your final score was " +
+            str(score) + "!")
+      x = 4
+    else:
+      print("ERROR")
 <py-script>
