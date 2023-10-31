@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<style>
+		body{
+			background-color:black;
+		}
+		#box1{
+			width:150px;
+			height:150px;
+			background-image:url("https://upload.wikimedia.org/wikipedia/en/e/e6/The_Weeknd_-_Blinding_Lights.png");
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			border: 2px solid whitesmoke;
+			display: inline-block;
+		}
+
+		#box2{
+			width:150px;
+			height:150px;
+			background-image:url("https://www.rhino.com/sites/g/files/g2000012691/files/styles/article_image/public/2021-02/Hotel-California-Album-Cover.png?itok=UOcj7O1q");
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			border: 2px solid whitesmoke;
+			display: inline-block;
+		}
+		#box3{
+			width:150px;
+			height:150px;
+			background-image:url("https://upload.wikimedia.org/wikipedia/en/9/90/Scorpion_by_Drake.jpg");
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			border: 2px solid whitesmoke;
+			display: inline-block;
+		}
+		#box4{
+			width:150px;
+			height:150px;
+			background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVGmf8N4ttys6qWdJYATTccEmQ0fPtEMx_Q-CgUWFXzgFqc7nemnQQpKrZtXYWch6226I&usqp=CAU");
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			display: block;
+			border: 2px solid whitesmoke;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<h3 style="font-family:monospace;color:seagreen;font-size:3vw;display: inline-block;">Spotispy</h3>
+
+	<br>
+	<i class="fab fa-spotify" style="color:green;position:absolute;top:30px;right: 40px;font-size:6vw;"></i>
+	<audio id="song1" src="song1.mp3"></audio/>
+	<div id="box1"></div>
+
+	<script type="text/javascript">
+
+		box1.addEventListener("click", function(){
+			song1.play()
+		})
+</script>
+</audio>
+
+	<audio id="song2" src="song2.mp3"></audio/>
+	<div id="box2"></div>
+
+	<script type="text/javascript">
+
+		box2.addEventListener("click", function(){
+			song2.play()
+		})
+</script>
+</audio>
+
+	<audio id="song3" src="song3.mp3"></audio/>
+	<div id="box3"></div>
+
+	<script type="text/javascript">
+
+		box3.addEventListener("click", function(){
+			song3.play()
+		})
+</script>
+</audio>
+
+	<audio id="superscary" src="superscary.mp3"></audio/>
+<!--	<a href="scary.gif"> -->
+		<div id="box4"></div>
+<!--	</a> -->
+
+	<script type="text/javascript">
+
+		box4.addEventListener("click", function(){
+			superscary.play()
+			document.body.style.backgroundImage = "url('scary.gif')";
+		})
+</script>
+</audio>
+</body>
+</html>
