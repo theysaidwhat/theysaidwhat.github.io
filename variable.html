@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<body style="background-image:url(amirgratefulbackground.jpg);">
+	<audio id="amirsound" src="amirsound.mp3"></audio>
+	<audio id="amirsound2" src="amirsound2.mp3"></audio>
+	<audio id="amirsound3" src="amirsound3.mp3"></audio>
+	<script type="text/javascript">
+		function makeAmir1(){
+			var amir1 = document.createElement("div");
+			document.body.appendChild(amir1)
+
+				amir1.style.width="100px";
+				amir1.style.height="100px";
+				amir1.style.backgroundSize="contain";
+				amir1.style.backgroundImage="url(amir1.jpg)";
+				amir1.style.display="inline-block";
+
+				amir1.addEventListener("click",
+				function(){
+					amir1.style.opacity="0";
+				amirsound2.play()
+			})
+		}
+
+		setInterval(makeAmir1, 100)
+
+		function makeAmir2(){
+			var amir2 = document.createElement("div");
+			document.body.appendChild(amir2)
+
+				amir2.style.width="100px";
+				amir2.style.height="100px";
+				amir2.style.backgroundSize="contain";
+				amir2.style.backgroundImage="url(amir2.jpg)";
+				amir2.style.display="inline-block";
+
+				amir2.addEventListener("click",
+				function(){
+					amir2.style.opacity="0";
+
+				amirsound3.play()
+			})
+		}
+
+		setInterval(makeAmir2, 100)
+
+				function makeAmir3(){
+			var amir3 = document.createElement("div");
+			document.body.appendChild(amir3)
+
+				amir3.style.width="100px";
+				amir3.style.height="100px";
+				amir3.style.backgroundSize="contain";
+				amir3.style.backgroundImage="url(amir3.jpg)";
+				amir3.style.display="inline-block";
+
+				amir3.addEventListener("click",
+				function(){
+					amir3.style.opacity="0";
+				amirsound.play()
+			})
+		}
+
+		setInterval(makeAmir3, 100)
+	</script>
+</body>
+</html>
