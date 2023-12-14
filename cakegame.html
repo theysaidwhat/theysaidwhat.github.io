@@ -1,0 +1,126 @@
+<html><head>
+    <title></title>
+    <style type="text/css">
+    #cake {
+        width: 580px;
+        height: 580px;
+        background-image: url("cake.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    #lolipop {
+
+        background-image: url(lolipop.png);
+        background-size: cover;
+    }
+
+    #candles {
+
+        background-image: url(candles.png);
+    }
+
+    #strawberry {
+        background-image: url(strawberry.png)
+    }
+
+    #razerblades {
+        background-image: url(razerblades.png)
+    }
+
+    #sprinkles {
+        background-image: url(sprinkles.png)
+    }
+
+    .topping {
+        width: 100px;
+        height: 100px;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        display: inline-block;
+        position: relative;
+
+
+    }
+    </style>
+</head>
+
+<body>
+    <div class="topping" id="lolipop"></div>
+    <div class="topping" id="candles"></div>
+    <div class="topping" id="strawberry"></div>
+    <div class="topping" id="razerblades"></div>
+    <div class="topping" id="sprinkles"></div>
+    <div id="cake"></div>
+    <script type="text/javascript">
+    var image;
+
+
+
+
+
+    function makeTopping() {
+        var lolipop = document.createElement("lolipop");
+        var angle = Math.floor((Math.random() * 360) + 1);
+        lolipop.style.width = "100px";
+        lolipop.style.height = "100px";
+        lolipop.style.borderRadius = "50%";
+        lolipop.style.position = "absolute";
+        lolipop.style.backgroundImage = "url(" + image + ")";
+        lolipop.style.backgroundSize = "cover";
+        lolipop.style.transform = "rotate("
+        + angle + "deg)";
+
+
+
+        cake.addEventListener("mousemove", function(event) {
+            console.log(event)
+
+        });
+
+
+        cake.appendChild(lolipop);
+
+        lolipop.style.left =   event.clientX - 50 + "px";
+        lolipop.style.top = event.clientY - 50 + "px";
+
+
+
+    };
+
+    lolipop.addEventListener("click", function() {
+
+        image = "lolipop.png"
+    });
+
+    candles.addEventListener("click", function() {
+
+        image = "candles.png"
+    });
+
+
+    strawberry.addEventListener("click", function() {
+
+        image = "strawberry.png"
+    });
+
+
+
+    razerblades.addEventListener("click", function() {
+
+        image = "razerblades.png"
+    });
+
+
+    sprinkles.addEventListener("click", function() {
+
+        image = "sprinkles.png"
+    });
+
+
+    cake.addEventListener("click", makeTopping);
+    </script>
+</body>
+
+</html>

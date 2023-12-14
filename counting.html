@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		.eq{
+			width:100px;
+			height:100px;
+			background-image:url(https://i0.wp.com/acomfykindofrestless.com/wp-content/uploads/2017/12/present-wrapped-with-bow.png?ssl=1);		
+			background-size:contain;
+			dislay:inline-block;
+		}
+	</style>
+
+</head>
+<body>
+
+<center><h1>Number of presents</h1></center>
+
+<script type="text/javascript">
+	function makeEQ (input) {
+		var eq = document.createElement("div")
+		document.body.appendChild(eq);
+		eq.calssList.add("eq");
+		eq.innerText = input
+	}
+
+	for (var counter =0; counter<20000; counter=counter+1) {
+		makeEQ(counter)
+	}
+</script>
+
+</body>
+</html>
