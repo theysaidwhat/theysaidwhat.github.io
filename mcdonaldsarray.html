@@ -1,0 +1,56 @@
+<html>
+<head>
+<style> 
+
+	body{
+		width: 1000px;
+		height: 800px;
+		background-image: radial-gradient(#FFA500, #FFFF00, #FF0000);
+	}
+
+		
+		#mcdonaldsworker{
+			width:400px;
+			height:400px;
+			background-size:contain;
+			background-repeat:no-repeat;
+*/			font-size:100px;
+			text-align:right;
+			padding-top:100px;
+			background-image: url(mcdonaldsworker.jpg);
+			position: absolute;
+			left: 18%;
+			top: 30%;
+
+		}
+
+		h1 {
+			text-align:center;
+		}
+	
+
+</style>
+</head>
+
+<body>
+<h1>Welcome to McDonalds (Click Employee for Non-Optional Recommendation)</h1>
+<div id="mcdonaldsworker">u should get...</div>
+
+<script>
+	
+var mcdonaldsworker = document.getElementById('mcdonaldsworker'); 
+
+mcdonaldsworker.addEventListener("click", function(){console.log("hi");
+mcdonaldsworker.innerText = orders[Math.round(Math.random()*9)];
+
+
+});
+
+	var orders = ["u should get a McChicken", "i'd get a McRib if i were u", "get a Big Mac", "ask for just McNuggets", "classic Cheeseburger on top man", "McDouble perhaps", "BBQ Ranch Burger is what u gotta do", "Filet-O-Fish shall be ur dish", "only Fries for you", "go to Burger King man" ];
+
+
+
+
+</script>
+</body>
+</html>

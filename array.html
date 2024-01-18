@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.Cake {
+			width: 100px;
+			height: 100px;
+			background-size: cover;
+			background-image:url(cake.png);
+			background-position: cover;
+		}
+	</style>
+</head>
+<body>
+LET THEM EAT CAKE!
+<script type="text/javascript">
+
+	function makeCake (){
+		var cake = document.createElement("div");
+		document.body.appendChild(cake);
+		cake.classList.add("Cake")
+	}
+
+	for(var a = 0; a < 100; a++) {
+		{makeCake()}
+	}
+</script>
+</body>
+</html>
