@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div id="car"></div>
+
+<style type="text/css">
+
+#car{
+width:200px;
+height:130px;
+background-image:url(reverse.png);
+background-size:contain;
+position:relative;
+
+}
+
+
+</style>
+
+</head>
+<body style="background-color:#d5dfde;">
+
+<a href="projects.html">
+<div id="exit"></div>
+</a>
+
+
+<script type="text/javascript">
+var left =0;
+var up =0;
+
+document.addEventListener("keypress", function(event){
+
+if (event.key=="d")
+{
+left = left +20;
+console.log (left);
+car.style.left = left + "px";
+car.style.backgroundImage = "url(reverse.png)"
+
+}
+
+if (event.key=="a")
+{
+left = left -20;
+console.log (left);
+car.style.left = left + "px";
+car.style.backgroundImage = "url(pixel.png)"
+
+
+}
+
+if (event.key=="w")
+{
+up = up -20;
+console.log (up);
+car.style.top = up + "px";
+}
+
+if (event.key=="s")
+{
+up = up +20;
+console.log (up);
+car.style.top = up + "px";
+}
+})
+
+</script>
+
+</body>
+</html>
